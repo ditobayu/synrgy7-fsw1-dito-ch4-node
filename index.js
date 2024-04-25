@@ -1,7 +1,7 @@
 const {volumeKubus, luasPermukaanKubus} = require('./kubus');
 const {volumeBalok, luasPermukaanBalok} = require('./balok');
 const {volumePrismaSegitiga, luasPermukaanPrismaSegitiga} = require('./prisma');
-const {writeUserData, readUserData} = require('./user');
+const {writeInitialUserData, writeNewUserData, readUserData} = require('./people');
 
 // console.log("Kubus"); 
 // console.log(volumeKubus(8)); // 512
@@ -19,4 +19,11 @@ const {writeUserData, readUserData} = require('./user');
 
 // fs.writeFileSync('./result.txt', volumeBalok1.toString(), 'utf-8');
 
-writeUserData()
+writeInitialUserData()
+writeNewUserData({
+    id: 11,
+    name: "John Doe",
+    username: "John_Doe",
+    email: "john@gmail.com"
+})
+readUserData()

@@ -1,6 +1,6 @@
 const fs = require('fs');
 
-const writeUserData = async () => {
+const writeInitialUserData = async () => {
     const data = [
         {
             id: 1,
@@ -73,6 +73,36 @@ const writeUserData = async () => {
     });
 }
 
+const writeNewUserData = async (newData) => {
+    fs.readFile('./dummy.txt', 'utf-8', (err, data) => {
+        if (err) {
+            console.log(err);
+            return;
+        }
+        const oldData = JSON.parse(data);
+        const updatedData = [...oldData, newData];
+        fs.writeFile('./dummy.txt', JSON.stringify(updatedData), 'utf-8', (err) => {
+            if (err) {
+                console.log(err);
+                return;
+            }
+            console.log("Data has been written successfully");
+        });
+    });
+}
+
+const readUserData = async () => {
+    fs.readFile('./dummy.txt', 'utf-8', (err, data) => {
+        if (err) {
+            console.log(err);
+            return;
+        }
+        console.log(JSON.parse(data));
+    });
+}
+
 module.exports = {
-    writeUserData
+    writeInitialUserData,
+    writeNewUserData,
+    readUserData
 }
