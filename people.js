@@ -101,8 +101,34 @@ const readUserData = async () => {
     });
 }
 
+const getDetail = async (id) => {
+    fs.readFile('./dummy.txt', 'utf-8', (err, data) => {
+        if (err) {
+            console.log(err);
+            return;
+        }
+        const users = JSON.parse(data);
+        const user = users.find((user) => user.id === id);
+        console.log(user);
+    });
+}
+
+const getData = async () => {
+    fs.readFile('./dummy.txt', 'utf-8', (err, data) => {
+        if (err) {
+            console.log(err);
+            return;
+        }
+        const users = JSON.parse(data);
+        const user = users.map((user) => user.name);
+        console.log(user);
+    });
+}
+
 module.exports = {
     writeInitialUserData,
     writeNewUserData,
-    readUserData
+    readUserData,
+    getDetail,
+    getData
 }
