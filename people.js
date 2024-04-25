@@ -86,7 +86,7 @@ const writeNewUserData = async (newData) => {
                 console.log(err);
                 return;
             }
-            console.log("Data has been written successfully");
+            console.log(updatedData);
         });
     });
 }

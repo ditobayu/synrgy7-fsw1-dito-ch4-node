@@ -20,12 +20,12 @@ const {writeInitialUserData, writeNewUserData, readUserData,getDetail, getData} 
 // fs.writeFileSync('./result.txt', volumeBalok1.toString(), 'utf-8');
 
 writeInitialUserData()
-// writeNewUserData({
-//     id: 11,
-//     name: "John Doe",
-//     username: "John_Doe",
-//     email: "john@gmail.com"
-// })
+writeNewUserData({
+    id: 11,
+    name: "John Doe",
+    username: "John_Doe",
+    email: "john@gmail.com"
+})
 // readUserData()
-getData()
-getDetail(4)
+// getData()
+// getDetail(4)
